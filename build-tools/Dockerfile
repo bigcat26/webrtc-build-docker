@@ -50,8 +50,10 @@ USER $USERNAME
 
 # Run fetch and gclient initially since this pulls a lot of data when run
 # for the first time
-RUN fetch --help > /dev/null && \
-    gclient --help > /dev/null
+RUN fetch > /dev/null && \
+    gclient > /dev/null
+
+ENV DEPOT_TOOLS_UPDATE=0
 
 # Set working directory
 WORKDIR /webrtc
